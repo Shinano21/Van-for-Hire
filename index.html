@@ -7,445 +7,254 @@
   <meta name="keywords" content="van for hire, Nissan Estate, Aroroy to Manila, moving, delivery, group trips">
   <meta name="author" content="Onnel & Co.">
   <link rel="icon" type="image/png" href="logo.png" sizes="32x32">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <title>Van for Hire</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
     body {
-      line-height: 1.6;
       background-color: #1A202C;
       color: #F9FAFB;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    header {
-      background-color: #1A202C;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    header h1 {
-      font-size: clamp(1.5rem, 5vw, 1.8rem);
+    .navbar-brand {
+      color: #F97316 !important;
       font-weight: 700;
+      font-size: 1.5rem;
     }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    .nav-link {
+      color: #F9FAFB !important;
+      font-size: 1rem;
+      font-weight: 500;
     }
-
-    nav a {
-      color: #F9FAFB;
-      text-decoration: none;
-      font-size: clamp(0.9rem, 4vw, 1rem);
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
-      transition: all 0.3s ease;
+    .nav-link:hover, .nav-link:focus {
+      color: #F97316 !important;
     }
-
-    nav a:hover, nav a:focus {
-      color: #F97316;
-      background-color: #2D3748;
-      outline: none;
-    }
-
     .hero {
       background-color: #1A202C;
-      padding: clamp(2rem, 8vw, 3rem) 1rem;
-      text-align: center;
-      position: relative;
+      color: #E5E7EB;
+      padding: 2rem 0;
     }
-
     .hero h2 {
-      font-size: clamp(1.8rem, 6vw, 2.5rem);
       color: #F97316;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
     }
-
     .hero p {
-      font-size: clamp(1rem, 4vw, 1.2rem);
-      color: #E5E7EB;
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.1rem;
+      margin-top: 1rem;
     }
-
-    .btn {
+    .btn-primary {
       background-color: #F97316;
-      color: #1A202C;
-      padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem);
-      text-decoration: none;
-      border-radius: 0.5rem;
-      font-size: clamp(0.9rem, 4vw, 1.1rem);
-      display: inline-block;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-color: #F97316;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
     }
-
-    .btn:hover, .btn:focus {
+    .btn-primary:hover, .btn-primary:focus {
       background-color: #E06B1F;
-      transform: translateY(-2px);
-      outline: none;
+      border-color: #E06B1F;
     }
-
-    .services {
-      padding: clamp(2rem, 8vw, 3rem) 0;
-      background-color: #1A202C;
-    }
-
-    .services h2 {
-      text-align: center;
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      color: #F97316;
-      margin-bottom: 2rem;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-      gap: 1.5rem;
-    }
-
-    .service-card {
+    .service-card, .van-details-card {
       background-color: #2D3748;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      text-align: center;
+      border: none;
       transition: transform 0.3s ease;
     }
-
-    .service-card:hover {
+    .service-card:hover, .van-details-card:hover {
       transform: translateY(-5px);
-    }
-
-    .service-card h3 {
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
-      color: #F97316;
-      margin-bottom: 1rem;
-    }
-
-    .service-card p {
-      color: #E5E7EB;
-      font-size: clamp(0.9rem, 3.5vw, 1rem);
-    }
-
-    .van-details {
-      padding: clamp(2rem, 8vw, 3rem) 0;
-      background-color: #1A202C;
-    }
-
-    .van-details h2 {
-      text-align: center;
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      color: #F97316;
-      margin-bottom: 2rem;
-    }
-
-    .van-details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-      gap: 1.5rem;
-      justify-items: center;
-    }
-
-    .van-details-card {
-      background-color: #2D3748;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      max-width: 100%;
-      transition: transform 0.3s ease;
     }
-
-    .van-details-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .van-details-card img {
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      border: 3px solid #F97316;
-      aspect-ratio: 16/9;
-    }
-
-    .van-details-card h3 {
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
+    .service-card h3, .van-details-card h3 {
       color: #F97316;
-      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
-
-    .van-details-card p {
+    .service-card p, .van-details-card p {
+      font-size: 1rem;
       color: #E5E7EB;
-      font-size: clamp(0.9rem, 3.5vw, 1rem);
     }
-
-    .contact {
-      padding: clamp(2rem, 8vw, 3rem) 0;
-      background-color: #1A202C;
-      text-align: center;
-    }
-
     .contact h2 {
-      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-size: 2rem;
+      font-weight: 700;
       color: #F97316;
-      margin-bottom: 1.5rem;
     }
-
     .contact p {
-      font-size: clamp(0.9rem, 4vw, 1.1rem);
-      color: #E5E7EB;
-      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
     }
-
-    .contact .phone {
-      font-size: clamp(1.3rem, 5vw, 1.8rem);
-      font-weight: bold;
-      color: #F97316;
-      margin: 1.5rem 0;
-    }
-
     .contact .phone a {
       color: #F97316;
-      text-decoration: none;
-      transition: color 0.3s ease;
+      font-size: 1.3rem;
+      font-weight: 600;
     }
-
     .contact .phone a:hover, .contact .phone a:focus {
       color: #E06B1F;
-      outline: none;
     }
-
     .contact .email a {
       color: #E5E7EB;
-      text-decoration: none;
-      transition: color 0.3s ease;
+      font-size: 1.1rem;
     }
-
     .contact .email a:hover, .contact .email a:focus {
       color: #F97316;
-      outline: none;
     }
-
     footer {
       background-color: #1A202C;
       color: #E5E7EB;
-      text-align: center;
-      padding: 1.5rem 0;
-      font-size: clamp(0.8rem, 3vw, 0.9rem);
       border-top: 1px solid #2D3748;
     }
-
+    footer p {
+      font-size: 0.9rem;
+    }
     footer a {
       color: #F97316;
-      text-decoration: none;
-      transition: color 0.3s ease;
     }
-
     footer a:hover, footer a:focus {
       color: #E06B1F;
-      outline: none;
     }
-
-    /* Mobile-specific styles */
-    @media (max-width: 768px) {
-      header .container {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-        width: 100%;
-        align-items: center;
-      }
-
-      nav a {
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem;
-      }
-
-      .hero h2 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
-      }
-
-      .hero p {
-        font-size: clamp(0.9rem, 4vw, 1.1rem);
-      }
-
-      .services-grid,
-      .van-details-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .contact .phone {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
-      }
+    .van-details-card img {
+      border: 3px solid #F97316;
+      border-radius: 0.5rem;
     }
-
-    /* Small mobile devices */
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 0.75rem;
-      }
-
-      header h1 {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
-      }
-
-      .hero {
-        padding: clamp(1.5rem, 6vw, 2rem) 0.75rem;
-      }
-
-      .services,
-      .van-details,
-      .contact {
-        padding: clamp(1.5rem, 6vw, 2rem) 0;
-      }
-
-      .service-card,
-      .van-details-card {
-        padding: 1rem;
-      }
+    /* Ensure spacing and readability */
+    .card-body {
+      padding: 1.25rem;
     }
-
-    /* Accessibility */
-    a:focus, .btn:focus {
-      outline: 3px solid #F97316;
-      outline-offset: 3px;
-    }
-
-    button:focus, input:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px #F97316;
-    }
-
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Prevent horizontal scrolling */
-    body {
-      overflow-x: hidden;
-    }
-
-    /* Touch-friendly tap highlights */
-    a, .btn {
-      -webkit-tap-highlight-color: transparent;
+    .text-center {
+      letter-spacing: 0.02rem;
     }
   </style>
 </head>
 <body>
-  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <h1>Onnel & Co.</h1>
-      <nav>
-        <ul>
-          <li><a href="#home" aria-label="Go to Home section">Home</a></li>
-          <li><a href="#services" aria-label="Go to Services section">Services</a></li>
-          <li><a href="#van-details" aria-label="Go to Van Details section">Van Details</a></li>
-          <li><a href="#contact" aria-label="Go to Contact Us section">Contact Us</a></li>
+      <a class="navbar-brand" href="#home">Onnel & Co.</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home" aria-label="Go to Home section">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" aria-label="Go to Services section">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#van-details" aria-label="Go to Van Details section">Van Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Go to Contact Us section">Contact Us</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <section id="home" class="hero">
-    <div class="container">
-      <h2>Van for Hire</h2>
-      <p>With our van-for-hire service, you may travel from Aroroy to Manila and return in safety and comfort. We offer air-conditioned travel, polite service, and reliable schedules for work, travel, or running errands, all at an affordable cost. We have the trip covered, just kick back and relax.</p>
-      <a href="#contact" class="btn" aria-label="Contact us to book the Nissan Estate">Contact Us</a>
+    <div class="container text-center">
+      <h2 class="display-4">Van for Hire</h2>
+      <p class="lead">With our van-for-hire service, you may travel from Aroroy to Manila and return in safety and comfort. We offer air-conditioned travel, polite service, and reliable schedules for work, travel, or running errands, all at an affordable cost. We have the trip covered, just kick back and relax.</p>
+      <a href="#contact" class="btn btn-primary btn-lg" aria-label="Contact us to book the Nissan Estate">Contact Us</a>
     </div>
   </section>
 
-  <section id="services" class="services">
+  <section id="services" class="services py-5">
     <div class="container">
-      <h2>Why Choose Our Nissan Estate?</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Moving & Relocation</h3>
-          <p>Ample cargo space for easy home or office moves.</p>
+      <h2 class="text-center mb-4">Why Choose Our Nissan Estate?</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Family Outing</h3>
+            <p class="card-text">Enjoy comfortable travel for family outings.</p>
+          </div>
         </div>
-        <div class="service-card">
-          <h3>Delivery Services</h3>
-          <p>Reliable deliveries with a 3-ton payload capacity.</p>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Events</h3>
+            <p class="card-text">Reliable transportation for various events.</p>
+          </div>
         </div>
-        <div class="service-card">
-          <h3>Group Trips</h3>
-          <p>Comfort for up to 12 passengers on outings or travel.</p>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Seminars</h3>
+            <p class="card-text">Convenient travel for seminar attendees.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Weddings</h3>
+            <p class="card-text">Stylish and timely transport for wedding guests.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Lipat Bahay</h3>
+            <p class="card-text">Assistance with house moving needs.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Hakot Gamit</h3>
+            <p class="card-text">Efficient goods transportation services.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Business Delivery/Pick Up</h3>
+            <p class="card-text">Dependable delivery and pick-up for businesses.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Essentials Delivery</h3>
+            <p class="card-text">Timely delivery of essential items.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Airport Drop/Pick Up</h3>
+            <p class="card-text">Convenient airport transportation services.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="service-card card h-100 p-3">
+            <h3 class="card-title">Catering</h3>
+            <p class="card-text">Support for catering event logistics.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="van-details" class="van-details">
+  <section id="van-details" class="van-details py-5">
     <div class="container">
-      <h2>Our Nissan Estate</h2>
-      <div class="van-details-grid">
-        <div class="van-details-card">
-          <img src="12-Seater.jpg" alt="Interior view of Nissan Estate with 12 seats" loading="lazy">
-          <h3>Spacious 12-Seater Interior</h3>
-          <p>Perfect for group trips or large families.</p>
+      <h2 class="text-center mb-4">Our Nissan Estate</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="van-details-card card p-3 text-center">
+            <img src="12-Seater.jpg" alt="Interior view of Nissan Estate with 12 seats" class="card-img-top" loading="lazy">
+            <h3 class="card-title">Spacious 12-Seater Interior</h3>
+            <p class="card-text">Perfect for group trips or large families.</p>
+          </div>
         </div>
-        <div class="van-details-card">
-          <img src="Van.png" alt="Exterior view of Nissan Estate" loading="lazy">
-          <h3>Reliable Nissan Estate</h3>
-          <p>Versatile for moving passengers or deliveries.</p>
+        <div class="col">
+          <div class="van-details-card card p-3 text-center">
+            <img src="Van.png" alt="Exterior view of Nissan Estate" class="card-img-top" loading="lazy">
+            <h3 class="card-title">Reliable Nissan Estate</h3>
+            <p class="card-text">Versatile for moving passengers or deliveries.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
+  <section id="contact" class="contact py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Contact Us</h2>
       <p>Get in touch to hire our Nissan Estate!</p>
-      <p class="phone"><a href="tel:+63 928 653 2542" aria-label="Call us at +63 928 653 2542 or +63 950 668 5560">Call us at +63 928 653 2542 or +63 950 668 5560</a></p>
-      <p class="email"><a href="mailto:info@vanforhire.com" aria-label="Email us at info@vanforhire.com">info@vanforhire.com</a></p>
+      <p class="phone mb-2"><a href="tel:+63 928 653 2542" aria-label="Call us at +63 928 653 2542 or +63 950 668 5560">Call us at +63 928 653 2542 or +63 950 668 5560</a></p>
+      <p class="email mb-2"><a href="mailto:info@vanforhire.com" aria-label="Email us at info@vanforhire.com">info@vanforhire.com</a></p>
       <p>Address: 123 Van Street, City, Country</p>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Onnel & Co. All rights reserved. | <a href="http://shinano21.github.io/Van-for-Hire/" aria-label="Visit our website">http://shinano21.github.io/Van-for-Hire/</a></p>
+  <footer class="py-3">
+    <div class="container text-center">
+      <p>© 2025 Onnel & Co. All rights reserved. | <a href="http://shinano21.github.io/Van-for-Hire/" aria-label="Visit our website">http://shinano21.github.io/Van-for-Hire/</a></p>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
